@@ -1,0 +1,9 @@
+<div *ngIf="CommentsService.comments.length" class="info">
+    <h2> Информация: </h2>
+    <div class="clear">
+    <button mat-raised-button color="primary" class="clear" (click)="CommentsService.clear()">Очистить</button>
+    </div>
+    <div *ngFor='let comments of CommentsService.comments'> {{comments}} </div>
+  </div>
+
+    

@@ -1,0 +1,47 @@
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="formGroups" (submit)="onSubmitGroups()">
+
+      <mat-form-field class="example-full-width">
+        <mat-label for="search-box">Номер</mat-label>
+        <input #userId formControlName="userId" ng-pattern="/^[0-9]$/" matInput type="number" id="userId" name="userId"/>
+        <mat-hint
+          *ngIf="formGroups.get('userId').invalid && formGroups.get('userId').touched"
+          >Поле Номер не должно быть пустым</mat-hint>
+      </mat-form-field>
+      <br/>     
+
+      <mat-form-field class="example-full-width">
+        <mat-label for="search-box">Заголовок</mat-label>
+        <input #title formControlName="title" matInput type="text" id="title" name="title"/>
+        <mat-hint
+          *ngIf="formGroups.get('title').invalid && formGroups.get('title').touched"
+          >Поле Заголовок пользователя не должно быть пустым</mat-hint>
+      </mat-form-field>
+      <br/>
+
+      <mat-form-field class="example-full-width">
+        <mat-label for="search-box">Описание</mat-label>
+        <input #body formControlName="body" matInput type="body" id="body" name="body"/>
+        <mat-hint
+          *ngIf="formGroups.get('body').invalid && formGroups.get('body').touched"
+          >Поле Описание группы не должно быть пустым</mat-hint>
+      </mat-form-field>
+      <br />
+
+      <mat-dialog-actions align="end">
+        <button
+          mat-button
+          cdkFocusInitial
+          type="submit"
+          id="submitDetails"
+          name="submitDetails"
+          [disabled]="formGroups.invalid"
+        >
+          Сохранить
+        </button>
+        <button mat-button mat-dialog-close>Отмена</button>
+      </mat-dialog-actions>
+    </form>
+  </mat-dialog-content>
+  <!--
+          (click)="onSave()"-->

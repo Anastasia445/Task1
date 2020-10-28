@@ -1,0 +1,35 @@
+<div *ngIf="Record" class="all">
+    <h2>Подробнее о пользователе<a class="color"> № {{Record.id}}</a></h2>
+    <div class="example-container" >
+    <section>
+        <mat-form-field appearance="fill">
+            <mat-label class="mat" >Номер пользователя(id:) </mat-label>
+          <textarea matInput readonly matTextareaAutosize [(ngModel)]="Record.id" placeholder="id"></textarea>
+        </mat-form-field>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+        <mat-form-field appearance="fill">
+            <mat-label>Категория пользователя(UserId:) </mat-label>
+          <textarea matInput readonly matTextareaAutosize [(ngModel)]="Record.userId" placeholder="userId"></textarea>
+        </mat-form-field>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+        <mat-form-field appearance="fill">
+            <mat-label class="mat" >Заголовок(title:) </mat-label>
+          <textarea matInput readonly matTextareaAutosize [(ngModel)]="Record.title" placeholder="title"></textarea>
+        </mat-form-field>
+    </section>
+    <mat-divider></mat-divider>
+    <section>
+        <mat-form-field appearance="fill">
+            <mat-label class="mat" >Описание(body:) </mat-label>
+          <textarea matInput readonly matTextareaAutosize [(ngModel)]="Record.body" placeholder="body"></textarea>
+        </mat-form-field>
+    </section>
+    <mat-divider></mat-divider>
+  </div>
+  <div class="example-form">
+  <button mat-raised-button color="primary" class="back"(click)="goBack()">Назад</button>
+  </div>

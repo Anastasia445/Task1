@@ -1,0 +1,23 @@
+* {
+  margin: 20px 0 0 20px;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.example-full-width {
+  width: 100%;
+}
+.mat {
+  font-size: 18px;
+}
+.back {
+  margin: 10px 0 0 400px;
+}
+.color {
+  color: red;
+}
+h2 {
+  padding: 15px;
+}

@@ -1,0 +1,18 @@
+<div id="search-component">
+    <h2><label for="search-box">Поиск по заголовку(title):</label></h2>
+  <form class="example-form input">
+  <mat-form-field class="example-full-width">
+   <!-- <input #searchBox id="search-box" (input)="search(searchBox.value)" /> -->
+    <input matInput #searchBox id="search-box" (input)="search(searchBox.value)" />
+  </mat-form-field>
+  </form>
+    <ul class="search-result">
+      <li *ngFor="let record of records$ | async" >
+        <a routerLink="/details/{{record.id}}">
+          {{record.title}}
+        </a>
+      </li>
+    </ul>
+    <button mat-raised-button color="primary" class="back"(click)="goBack()">Назад</button>
+  </div>
+ <app-comments></app-comments>
