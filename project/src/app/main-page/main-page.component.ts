@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { NewPostComponent } from '../new-post/new-post.component';
 import { MainService } from '../services/main.service';
+import { AuthService } from '../services/auth.service';
 
 export interface main {
   userId: number;
@@ -12,12 +13,12 @@ export interface main {
   title: string;
   body: string;
 }
-
+const r: main[] =[];
 @Component({
-  selector: 'app-main-page',
+  selector: 'app-main-page',  
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css'],
-  providers:[MainService]
+  styleUrls: ['./main-page.component.css']
+ // providers:[MainService]
 })
 export class MainPageComponent implements OnInit {
   [x: string]: any;
@@ -32,7 +33,8 @@ export class MainPageComponent implements OnInit {
  // public recordse;
   constructor(
     public dialog: MatDialog,
-    private MainService: MainService
+    private MainService: MainService,
+    public Auth: AuthService,
   ) {}
 
   ngOnInit() {
@@ -88,6 +90,7 @@ export class MainPageComponent implements OnInit {
      console.log('one', this.records);
     }
     });
+    
   }
 
   removeRecord(Record:main): void { 

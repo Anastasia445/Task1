@@ -10,27 +10,39 @@ import { CommentsComponent } from './comments/comments.component';
 import { NewPostComponent } from './new-post/new-post.component';
 import { DetailsComponent } from './details/details.component';
 import { SearchComponent } from './search/search.component';
-import { MainService } from './services/main.service';
-//import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-//import { MatDialogRef } from '@angular/material/dialog';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { InterceptorService } from './services/interceptor.service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthGuard } from './auth.guard';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     CommentsComponent,
     NewPostComponent,
-    NewPostComponent,
     DetailsComponent,
     SearchComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
-  providers: [MainService
+  providers: [AuthGuard,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    { provide: MatDialogRef, useValue: {} },
+    { provide : HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
    ],
   bootstrap: [AppComponent]
 })

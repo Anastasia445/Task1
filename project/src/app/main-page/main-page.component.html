@@ -1,6 +1,6 @@
   <br />
   <br />
-  <section>
+  <section *ngIf="Auth.loggedIn()">
     <div class="example-button-row">
       <button class="record" (click)="addRecords()" mat-raised-button color="primary">
         Добавить запись
@@ -11,7 +11,7 @@
     </div>
     </section>
    
-  <table mat-table [dataSource]= "records" class="mat-elevation-z8">
+  <table mat-table [dataSource]= "records" class="mat-elevation-z8" *ngIf="Auth.loggedIn()">
   
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>№</th>
