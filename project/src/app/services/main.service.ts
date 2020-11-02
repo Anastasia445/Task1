@@ -30,6 +30,10 @@ export class MainService {
   getRecords(): Observable<main[]> {
     return this.http.get<main[]>(getRrcords);
   }
+  getusercomment(postId:number): Observable<comments[]> {
+    //const url = `${comment}/${postId}`;
+    return this.http.get<comments[]>(`${comment}/?postId=${postId}`)
+  }
   getusercomments(id:number): Observable<comments> {
     const url = `${comment}/${id}`;
     return this.http.get<comments>(url);

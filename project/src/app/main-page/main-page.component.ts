@@ -1,5 +1,3 @@
-import { DataSource } from '@angular/cdk/table';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
@@ -26,7 +24,6 @@ const r: main[] =[];
   selector: 'app-main-page',  
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.css']
- // providers:[MainService]
 })
 export class MainPageComponent implements OnInit {
   [x: string]: any;
@@ -41,7 +38,7 @@ export class MainPageComponent implements OnInit {
   dataSource: any;
   records: main[];
   @ViewChild(MatPaginator) paginator: MatPaginator;
- // public recordse;
+
   constructor(
     public dialog: MatDialog,
     private MainService: MainService,
@@ -102,7 +99,7 @@ export class MainPageComponent implements OnInit {
           this.dataSource = new MatTableDataSource(this.records);
           this.dataSource.paginator = this.paginator;
         });
-    // console.log('one', this.dataSource);
+    
      console.log('one', this.records);
     }
     });

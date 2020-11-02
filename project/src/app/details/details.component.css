@@ -12,12 +12,13 @@
 .mat {
   font-size: 18px;
 }
-.back {
-  margin: 10px 0 0 400px;
-}
 .color {
   color: red;
 }
 h2 {
   padding: 15px;
 }
+table {
+  width: 90%;
+  margin: 30px 0 0 10px;
+  }
