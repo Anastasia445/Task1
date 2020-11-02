@@ -10,8 +10,9 @@
       </button>
     </div>
     </section>
-   
-  <table mat-table [dataSource]= "records" class="mat-elevation-z8" *ngIf="Auth.loggedIn()">
+
+    <div class="mat-elevation-z8 r">
+  <table mat-table [dataSource]= "dataSource"  *ngIf="Auth.loggedIn()">
   
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>№</th>
@@ -21,12 +22,12 @@
     </ng-container>
   
     <ng-container matColumnDef="title">
-      <th mat-header-cell *matHeaderCellDef>Заголовок(title:)</th>
+      <th mat-header-cell *matHeaderCellDef>Заголовок</th>
       <td mat-cell *matCellDef="let element" routerLink="/details/{{element.id}}">{{ element.title }}</td>
     </ng-container>
   
     <ng-container matColumnDef="body">
-      <th mat-header-cell *matHeaderCellDef>Описание(body:)</th>
+      <th mat-header-cell *matHeaderCellDef>Описание</th>
       <td mat-cell *matCellDef="let element" routerLink="/details/{{element.id}}">
         {{ element.body }}
       </td>
@@ -48,7 +49,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-  
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
   <!--<ul>
     <li *ngFor="let main of records">
       {{main.title}}

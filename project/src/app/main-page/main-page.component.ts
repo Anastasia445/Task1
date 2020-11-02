@@ -1,11 +1,12 @@
 import { DataSource } from '@angular/cdk/table';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { NewPostComponent } from '../new-post/new-post.component';
 import { MainService } from '../services/main.service';
 import { AuthService } from '../services/auth.service';
+import { MatPaginator } from '@angular/material/paginator';
 
 export interface main {
   userId: number;
@@ -29,7 +30,10 @@ export class MainPageComponent implements OnInit {
     'options'
   ];
  // records = new MatTableDataSource<main>(this.main);
+ length:number;
+ dataSource: any;
   records: main[];
+  @ViewChild(MatPaginator) paginator: MatPaginator;
  // public recordse;
   constructor(
     public dialog: MatDialog,
@@ -38,15 +42,20 @@ export class MainPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getRecords();
+    this.MainService.getRecords().subscribe(results=>{
+      this.records = results;
+      this.dataSource = new MatTableDataSource(this.records);
+      this.dataSource.paginator = this.paginator;
+   //   this.length = this.records.length;
+    });
   }
-  
+  /*
   getRecords(): void {
     this.MainService.getRecords().subscribe((records1) => {
     this.records = records1;
   }
     );
-  }
+  }*/
   
   addRecords() : void {
     const dialogRef = this.dialog.open(NewPostComponent, {
@@ -60,9 +69,9 @@ export class MainPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.MainService.addRecord(result.main).subscribe((result2) => 
-       this.records.push(result2),
+       this.dataSource.push(result2),
        );
-       console.log(result.main);
+       //console.log(result.main);
        console.log(this.records);
      /*  const r = this.records;
        this.records = r;  */
@@ -86,7 +95,7 @@ export class MainPageComponent implements OnInit {
             this.records[newvalue] = data;
           }
         });
-     console.log('one', result);
+    // console.log('one', this.dataSource);
      console.log('one', this.records);
     }
     });
@@ -94,9 +103,9 @@ export class MainPageComponent implements OnInit {
   }
 
   removeRecord(Record:main): void { 
-    this.records = this.records.filter(h => h !== Record);
+    this.dataSource = this.records.filter(h => h !== Record);
     this.MainService.deleteRecord(Record).subscribe();
-    console.log(this.records);
+    console.log(this.dataSource);
   }
 
   /*updateRecord() {

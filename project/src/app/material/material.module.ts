@@ -99,7 +99,7 @@ const MaterialComponents = [
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
 ]
 
 
