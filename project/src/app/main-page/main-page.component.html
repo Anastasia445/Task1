@@ -11,8 +11,8 @@
     </div>
     </section>
 
-    <div class="mat-elevation-z8 r">
-  <table mat-table [dataSource]= "dataSource"  *ngIf="Auth.loggedIn()">
+    <div class="mat-elevation-z8 r" *ngIf="Auth.loggedIn()">
+  <table mat-table [dataSource]= "dataSource" >
   
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>№</th>

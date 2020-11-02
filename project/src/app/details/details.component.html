@@ -33,3 +33,25 @@
   <div class="example-form">
   <button mat-raised-button color="primary" class="back"(click)="goBack()">Назад</button>
   </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label class="mat" >postId:</mat-label>
+    <textarea matInput readonly matTextareaAutosize [(ngModel)]="Comment.postId" placeholder="postId"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label class="mat" >id:</mat-label>
+  <textarea matInput readonly matTextareaAutosize [(ngModel)]="Comment.id" placeholder="id"></textarea>
+</mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label class="mat" >Название(name:) </mat-label>
+  <textarea matInput readonly matTextareaAutosize [(ngModel)]="Comment.name" placeholder="name"></textarea>
+</mat-form-field>
+<mat-form-field appearance="fill">
+  <mat-label class="mat" >Email: </mat-label>
+<textarea matInput readonly matTextareaAutosize [(ngModel)]="Comment.email" placeholder="email"></textarea>
+</mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label class="mat" >Описание(body:) </mat-label>
+    <textarea matInput readonly matTextareaAutosize [(ngModel)]="Comment.body" placeholder="body"></textarea>
+  </mat-form-field>
+  </div>

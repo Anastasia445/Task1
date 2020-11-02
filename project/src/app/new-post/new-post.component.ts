@@ -47,9 +47,9 @@ export class NewPostComponent implements OnInit {
       body: new FormControl(null, [Validators.required]),
     });
     if (this.data.item) {
-      this.formGroups.get('userId').setValue(this.data.item.name);
-      this.formGroups.get('title').setValue(this.data.item.description);
-      this.formGroups.get('body').setValue(this.data.item.localDate);
+      this.formGroups.get('userId').setValue(this.data.item.userId);
+      this.formGroups.get('title').setValue(this.data.item.title);
+      this.formGroups.get('body').setValue(this.data.item.body);
     }
   }
 
