@@ -32,36 +32,42 @@
   </div>
   <div>
 
-    <table mat-table [dataSource]= "dataSource" class="mat-elevation-z8" >
-    
+    <div>
+      <mat-form-field class="r" >
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. 1" #input>
+      </mat-form-field>
+      </div>
+
+    <table mat-table [dataSource]= "dataSource" class="mat-elevation-z8" matSort>
       <ng-container matColumnDef="postId">
-        <th mat-header-cell *matHeaderCellDef>ID<pre></pre></th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID<pre></pre></th>
         <td mat-cell *matCellDef="let element" >
           {{ element.postId }} 
         </td>
       </ng-container>
 
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>№<pre></pre></th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>№<pre></pre></th>
         <td mat-cell *matCellDef="let element" >
           {{ element.id }} 
         </td>
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>Имя<pre></pre></th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Имя<pre></pre></th>
         <td mat-cell *matCellDef="let element" >
           {{ element.name }} 
         </td>
       </ng-container>
     
       <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef>email<pre></pre></th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>email<pre></pre></th>
         <td mat-cell *matCellDef="let element" >{{ element.email }}</td>
       </ng-container>
     
       <ng-container matColumnDef="body">
-        <th mat-header-cell *matHeaderCellDef>Описание<pre></pre></th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Описание<pre></pre></th>
         <td mat-cell *matCellDef="let element">
           {{ element.body }}
         </td>
@@ -69,6 +75,10 @@
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Строки со значением "{{input.value}}" нету</td>
+      </tr>                    
     </table>
   </div>
   <div class="example-form">

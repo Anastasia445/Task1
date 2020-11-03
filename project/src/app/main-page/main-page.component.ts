@@ -5,6 +5,9 @@ import { NewPostComponent } from '../new-post/new-post.component';
 import { MainService } from '../services/main.service';
 import { AuthService } from '../services/auth.service';
 import { MatPaginator } from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 export interface main {
   userId: number;
@@ -37,23 +40,39 @@ export class MainPageComponent implements OnInit {
   length:number;
   dataSource: any;
   records: main[];
+  isReady:boolean;
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'indeterminate';
   @ViewChild(MatPaginator) paginator: MatPaginator;
-
+  @ViewChild(MatSort) sort: MatSort;
+  isLoading = true;
+  isLoadingResults = true;
   constructor(
     public dialog: MatDialog,
     private MainService: MainService,
     public Auth: AuthService,
-  ) {}
+  ) {setTimeout(()=> {
+    this.isReady = true;}, 600);}
 
   ngOnInit() {
     this.getRecords();
   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
   
   getRecords(): void {
     this.MainService.getRecords().subscribe(results=>{
+      this.isLoading = false;
       this.records = results;
       this.dataSource = new MatTableDataSource(this.records);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
   }
     );
   }
@@ -74,6 +93,7 @@ export class MainPageComponent implements OnInit {
        
        this.dataSource = new MatTableDataSource(this.records);
        this.dataSource.paginator = this.paginator;
+       this.dataSource.sort = this.sort;
        console.log(this.records);
        });
       }
@@ -98,6 +118,7 @@ export class MainPageComponent implements OnInit {
           }
           this.dataSource = new MatTableDataSource(this.records);
           this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         });
     
      console.log('one', this.records);
@@ -111,6 +132,7 @@ export class MainPageComponent implements OnInit {
    this.dataSource.data.splice(this.records.indexOf(Record), 1);
    this.dataSource = new MatTableDataSource(this.dataSource.data);
    this.dataSource.paginator = this.paginator;
+   this.dataSource.sort = this.sort;
     this.MainService.deleteRecord(Record).subscribe();
     console.log(this.records);
   }

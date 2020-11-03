@@ -22,3 +22,9 @@ table {
 .example-button-row {
   margin: 8px 8px 8px 0;
 }
+.spinner{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}

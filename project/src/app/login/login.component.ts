@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { ErrorStateMatcher, ThemePalette } from '@angular/material/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -19,12 +20,14 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class LoginComponent implements OnInit {
-
+  isLoading = true;
   loginUser = {
     email:'', 
     password:''}
-
-
+    isLoadingResults = true;
+    isReady:boolean;
+    color: ThemePalette = 'primary';
+    mode: ProgressSpinnerMode = 'indeterminate';
     emailFormControl = new FormControl('', [
       Validators.required,
       Validators.email,
@@ -36,11 +39,15 @@ export class LoginComponent implements OnInit {
     matcher = new MyErrorStateMatcher();
 
   constructor( private Auth: AuthService, private router: Router, private toastr: ToastrService) {
-    
-   }
+    setTimeout(()=> {
+      this.isReady = true;}, 600);
+    }
 
   ngOnInit(): void {
     
+  }
+  showSuccess() {
+    this.router.navigate(['/main'])
   }
 
   showError(){
@@ -52,7 +59,9 @@ export class LoginComponent implements OnInit {
     this.Auth.login(this.loginUser)
     .subscribe(result => 
       {
+         
         localStorage.setItem('token', result.token)
+        this.showSuccess();
     }, error => this.showError()
     );
   }
