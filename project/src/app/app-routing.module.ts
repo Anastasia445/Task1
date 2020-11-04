@@ -6,12 +6,14 @@ import { LoginComponent } from './login/login.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { SearchComponent } from './search/search.component';
 import { SignupComponent } from './signup/signup.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'main', component: MainPageComponent },
   { path: 'mainpage', component: MainPageComponent, canActivate: [AuthGuard] },
   { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ViewProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'details/:id', component: DetailsComponent, canActivate: [AuthGuard] },

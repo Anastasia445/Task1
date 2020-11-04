@@ -1,0 +1,113 @@
+<div class="form">
+  <mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title class="title"><h1>Данные пользователя</h1></mat-card-title>
+        <div mat-card-avatar class="example-header-image">
+            <img [src]="url" height="150px" ><br>
+            <input type="file" (change)="onSelectFile($event)" *ngIf="isReady">
+      </div>
+    </mat-card-header>
+    <mat-card-content>
+      <div  *ngIf="isReady">
+       <mat-form-field class="full-width">
+            <mat-label>Фамилия</mat-label>
+            <input  matInput [(ngModel)]="profile.lname" placeholder="Петров" type="text" required>
+          </mat-form-field> 
+         <br>
+         <mat-form-field class="full-width">
+            <mat-label>Имя</mat-label>
+            <input  matInput [(ngModel)]="profile.fname" type="text"  placeholder="Виктор" required>
+          </mat-form-field>
+          <br>
+          <mat-form-field class="full-width">
+            <mat-label>Отчество</mat-label>
+            <input  matInput  [(ngModel)]="profile.patronymic" placeholder="Петрович" type="text" required>
+      
+          </mat-form-field> 
+         <br>
+         <mat-form-field class="full-width">
+            <mat-label>email</mat-label>
+            <input  matInput  [(ngModel)]="profile.email" placeholder="ivan@mail.com" type="text" required>
+          
+          </mat-form-field> 
+         <br>
+         <mat-form-field class="full-width">
+            <mat-label>Адресс</mat-label>
+            <input  matInput  [(ngModel)]="profile.address" placeholder="Пр. октября 12/28" type="text" required>
+    
+          </mat-form-field> 
+          <br>
+          <mat-form-field class="full-width">
+             <mat-label>Город</mat-label>
+             <input  matInput  [(ngModel)]="profile.city" placeholder="Гомель" type="text" required>
+           </mat-form-field> 
+           <br>
+         <mat-form-field class="full-width">
+            <mat-label>Почтовый код</mat-label>
+            <input  matInput  [(ngModel)]="profile.pcode" placeholder="246000" type="number" ng-pattern="/^[0-9]$/" required>
+          </mat-form-field> 
+        </div>
+           <div *ngIf="!isReady">
+            <mat-form-field class="full-width">
+                 <mat-label>Фамилия</mat-label>
+                 <input  matInput [ngModel]="profile.lname" type="text" readonly>
+               </mat-form-field> 
+              <br>
+              <mat-form-field class="full-width">
+                 <mat-label>Имя</mat-label>
+                 <input  matInput [ngModel]="profile.fname" type="text" readonly>
+           
+               </mat-form-field>
+               <br>
+               <mat-form-field class="full-width">
+                 <mat-label>Отчество</mat-label>
+                 <input  matInput  [ngModel]="profile.patronymic" type="text" readonly>
+           
+               </mat-form-field> 
+              <br>
+              <mat-form-field class="full-width">
+                 <mat-label>email</mat-label>
+                 <input  matInput  [ngModel]="profile.email" type="text" readonly>
+               
+               </mat-form-field> 
+              <br>
+              <mat-form-field class="full-width">
+                 <mat-label>Адресс</mat-label>
+                 <input  matInput  [ngModel]="profile.address" type="text" readonly>
+         
+               </mat-form-field> 
+               <br>
+               <mat-form-field class="full-width">
+                  <mat-label>Город</mat-label>
+                  <input  matInput  [ngModel]="profile.city" type="text" readonly>
+                </mat-form-field> 
+                <br>
+              <mat-form-field class="full-width">
+                 <mat-label>Почтовый код</mat-label>
+                 <input  matInput  [ngModel]="profile.pcode" type="number" ng-pattern="/^[0-9]$/" readonly>
+               </mat-form-field> 
+             </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="ok">
+        <button (click)="save()"
+        mat-raised-button color="primary"
+        type="button" *ngIf="isReady">
+        Сохранить
+      </button> 
+      <button (click)="created()"
+      mat-raised-button color="primary"
+      type="button" *ngIf="!isReady">
+      Редактировать
+    </button> 
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button
+    mat-raised-button color="primary"
+    type="button" 
+    routerLink="/main">
+    На главную
+  </button> 
+  </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

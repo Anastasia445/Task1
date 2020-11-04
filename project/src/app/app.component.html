@@ -9,6 +9,9 @@
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/login" *ngIf="!auth.loggedIn()" routerLinkActive="active">
     <mat-icon>login</mat-icon>
   </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" routerLink="/profile" *ngIf="auth.loggedIn()" routerLinkActive="active">
+    <mat-icon>account_circle</mat-icon>
+  </button>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"*ngIf="auth.loggedIn()" (click)="auth.logoutUser()">
     <mat-icon>logout</mat-icon>
   </button>

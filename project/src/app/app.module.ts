@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthGuard } from './auth.guard';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +29,7 @@ import { MatDialogRef } from '@angular/material/dialog';
     SearchComponent,
     LoginComponent,
     SignupComponent,
+    ViewProfileComponent,
   ],
   imports: [
     BrowserModule,
