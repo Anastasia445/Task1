@@ -1,0 +1,72 @@
+* {
+    margin: 20px 0 0 20px;
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  .example-form2 {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    padding: 0 0 0 400px;
+  }
+  .example-full-width {
+    max-width: 40px;
+  }
+  .mat {
+    font-size: 18px;
+  }
+  .color {
+    color: red;
+  }
+  h2 {
+    padding: 15px;
+  }
+  table {
+    width: 95%;
+    margin: 10px 0 0 10px;
+    }
+    .r{
+      width: 90%;
+      margin: 10px 0 0 0px;
+    }
+    .s {
+      margin: 0 0 20px;
+    }
+    .example-section {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      height: 60px;
+    }
+    
+    .example-margin {
+      margin: 0 10px;
+    }
+    .body{
+      max-width: 200px;
+    }
+    .example
+    {
+      max-width: 40px;
+      text-align:center;
+    }
+    .main{
+       flex-direction: row;
+        padding: 1px 0;
+        max-width: 350px;
+    }
+    .title{
+      padding: 0 0 0 40px;
+    }
+    .spinner{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+    }
+    .countNumbers{
+      max-width: 150px;
+    }

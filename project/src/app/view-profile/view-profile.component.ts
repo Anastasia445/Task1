@@ -1,6 +1,7 @@
 import { style } from '@angular/animations';
 import { NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-view-profile',
@@ -18,7 +19,10 @@ export class ViewProfileComponent implements OnInit {
     pcode:'246140'} 
     isReady:boolean;
   constructor() { }
-
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
   ngOnInit(): void {
   }
 

@@ -34,6 +34,12 @@ export class MainService {
     //const url = `${comment}/${postId}`;
     return this.http.get<comments[]>(`${comment}/?postId=${postId}`)
   }
+
+  getusercommentt(postId:number): Observable<comments[]> {
+    //const url = `${comment}/${postId}`;
+    return this.http.get<comments[]>(`${comment}/?postId=${postId}`)
+  }
+
   getusercomments(id:number): Observable<comments> {
     const url = `${comment}/${id}`;
     return this.http.get<comments>(url);
@@ -43,7 +49,7 @@ export class MainService {
     const url = `${getRrcords}/${id}`;
     return this.http.get<main>(url);
   }
-  
+
   getcomments(id){
     return this.http.get(getRrcords + "/" + id +"/comments")
   }

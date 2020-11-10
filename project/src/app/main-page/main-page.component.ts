@@ -89,8 +89,8 @@ export class MainPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.MainService.addRecord(result.main).subscribe((result2) => {
+       this.isLoading = false;
        this.records.push(result2),
-       
        this.dataSource = new MatTableDataSource(this.records);
        this.dataSource.paginator = this.paginator;
        this.dataSource.sort = this.sort;
@@ -112,12 +112,12 @@ export class MainPageComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
          this.MainService.updateRecord(result.main).subscribe(data => { 
+          this.isLoading = false;
            const newvalue = data ? this.records.findIndex(h => h.id === data.id) : -1;
           if (newvalue > -1) {
             this.records[newvalue] = data;
           }
           this.dataSource = new MatTableDataSource(this.records);
-          this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
         });
     
@@ -129,11 +129,12 @@ export class MainPageComponent implements OnInit {
 
   removeRecord(Record:main): void { 
    //this.dataSource = this.records.filter(h => h !== Record);
+   this.isLoading = false;
    this.dataSource.data.splice(this.records.indexOf(Record), 1);
    this.dataSource = new MatTableDataSource(this.dataSource.data);
    this.dataSource.paginator = this.paginator;
    this.dataSource.sort = this.sort;
-    this.MainService.deleteRecord(Record).subscribe();
+   this.MainService.deleteRecord(Record).subscribe();
     console.log(this.records);
   }
   onNoClick(): void {}

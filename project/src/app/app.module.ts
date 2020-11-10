@@ -19,6 +19,7 @@ import { AuthGuard } from './auth.guard';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { InfoComponent } from './info/info.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +31,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
     LoginComponent,
     SignupComponent,
     ViewProfileComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,

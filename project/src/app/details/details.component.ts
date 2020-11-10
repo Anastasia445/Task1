@@ -24,7 +24,8 @@ export class DetailsComponent implements OnInit {
     'id',
     'name',
     'email',
-    'body'
+    'body',
+    'details'
   ];
   dataSource: any;
   @ViewChild(MatSort) sort: MatSort;

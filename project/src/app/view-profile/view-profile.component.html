@@ -27,8 +27,8 @@
          <br>
          <mat-form-field class="full-width">
             <mat-label>email</mat-label>
-            <input  matInput  [(ngModel)]="profile.email" placeholder="ivan@mail.com" type="text" required>
-          
+            <input  matInput  [(ngModel)]="profile.email" placeholder="ivan@mail.com" name="email"
+             #email="ngModel" type="email" required >
           </mat-form-field> 
          <br>
          <mat-form-field class="full-width">
