@@ -21,6 +21,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class LoginComponent implements OnInit {
   isLoading = true;
+  checked = false
   loginUser = {
     email:'', 
     password:''}
@@ -45,6 +46,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     
+  }
+  ch($event:any){
+    if($event){
+      this.checked = true; 
+    }
   }
   showSuccess() {
     this.router.navigate(['/main'])

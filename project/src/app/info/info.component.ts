@@ -73,14 +73,6 @@ export class InfoComponent implements OnInit {
    // let v = element.mark;
   }
 
-  checkSelected(label: string) {
-    this.number.forEach(x => {
-        if(x.label !== label) {
-            x.checked = !x.checked
-        }
-    })
- }
-
   n: number = 0;
   count: number = 0;
  radioChange1($event : MatRadioChange):void{

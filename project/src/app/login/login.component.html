@@ -20,7 +20,11 @@
                   Поле пароль не должно быть пустым
                 </mat-error>
               </mat-form-field>
-               <br><br>
+               <br>
+               <section class="example-section">
+                <mat-checkbox class="example-margin2" color="primary" (change)="ch($event)" [(ngModel)]="checked">Зайти как администратор</mat-checkbox>
+              </section>
+              <br>
           <button
             class="ok"
             mat-raised-button color="primary"
