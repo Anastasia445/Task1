@@ -15,7 +15,7 @@ import { CardComponent } from './card/card.component';
 const routes: Routes = [
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'main', component: MainPageComponent },
-  { path: 'mainpage', component: MainPageComponent, canActivate: [AuthGuard] },
+{ path: 'mainpage', component: MainPageComponent, canActivate: [AuthGuard], /*data: {test:"something"}*/ },
   { path: 'search', component: SearchComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ViewProfileComponent, canActivate: [AuthGuard] },
   { path: 'info/:id', component: InfoComponent, canActivate: [AuthGuard] },

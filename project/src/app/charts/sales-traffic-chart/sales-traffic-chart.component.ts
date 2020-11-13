@@ -22,4 +22,6 @@ export class SalesTrafficChartComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  
 }

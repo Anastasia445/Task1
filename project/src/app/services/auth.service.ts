@@ -10,7 +10,7 @@ const login = 'https://reqres.in/api/login';
 })
 
 export class AuthService {
- 
+ // roleAs: string;
   constructor(private http: HttpClient, private router: Router) { }
 
   signupUser(user) {
@@ -35,4 +35,9 @@ export class AuthService {
   loggedIn(){
     return !!localStorage.getItem('token')    
   }
+
+ /* getRole() {
+    this.roleAs = localStorage.getItem('ROLE');
+    return this.roleAs;
+  }*/
 }

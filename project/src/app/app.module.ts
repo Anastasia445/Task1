@@ -41,6 +41,7 @@ import { SalesTrafficChartComponent } from './charts/sales-traffic-chart/sales-t
 import { AnnualSalesChartComponent } from './charts/annual-sales-chart/annual-sales-chart.component';
 import { StoreSessionsChartComponent } from './charts/store-sessions-chart/store-sessions-chart.component';
 import { ChartsTableComponent } from './charts-table/charts-table.component';
+import { PostsTableComponent } from './posts-table/posts-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { ChartsTableComponent } from './charts-table/charts-table.component';
     AnnualSalesChartComponent,
     StoreSessionsChartComponent,
     ChartsTableComponent,
+    PostsTableComponent,
   ],
   imports: [
     BrowserModule,

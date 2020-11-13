@@ -21,7 +21,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class LoginComponent implements OnInit {
   isLoading = true;
-  checked = false
+  //checked = false
+  checked:boolean;
   loginUser = {
     email:'', 
     password:''}
@@ -52,6 +53,9 @@ export class LoginComponent implements OnInit {
       this.checked = true; 
     }
   }
+  checkboxChanged(checked) {
+    this.checked = checked;
+  }
   showSuccess() {
     this.router.navigate(['/main'])
   }
@@ -65,9 +69,9 @@ export class LoginComponent implements OnInit {
     this.Auth.login(this.loginUser)
     .subscribe(result => 
       {
-         
-        localStorage.setItem('token', result.token)
-        this.showSuccess();
+          localStorage.setItem('token', result.token);
+          this.showSuccess();
+        
     }, error => this.showError()
     );
   }

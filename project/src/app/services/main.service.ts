@@ -11,6 +11,7 @@ const  httpOptions = {
 };
 
 const getRrcords = " http://jsonplaceholder.typicode.com/posts"
+const getRrcords10 = " http://jsonplaceholder.typicode.com/posts/?userId=1"
 const addRecord = "http://jsonplaceholder.typicode.com/posts"
 const deleteRecord = "http://jsonplaceholder.typicode.com/posts"
 const updateRecord= "http://jsonplaceholder.typicode.com/posts/1"
@@ -30,6 +31,10 @@ export class MainService {
   getRecords(): Observable<main[]> {
     return this.http.get<main[]>(getRrcords);
   }
+  getRecords10(): Observable<main[]> {
+    return this.http.get<main[]>(getRrcords10);
+  }
+
   getusercomment(postId:number): Observable<comments[]> {
     //const url = `${comment}/${postId}`;
     return this.http.get<comments[]>(`${comment}/?postId=${postId}`)

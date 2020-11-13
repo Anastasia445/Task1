@@ -5,12 +5,12 @@
     
     <!--Charts-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="Продажи товара №1">
+      <app-card title="Количество букв 'e' в title">
         <app-annual-sales-chart></app-annual-sales-chart>
       </app-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="Сумма купленных товаров">
+      <app-card title=" Количество'e' в title и body">
         <app-product-sales-chart></app-product-sales-chart>
       </app-card>
     </mat-grid-tile>
@@ -20,14 +20,16 @@
       </app-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="Женщины и мужчины(по возвр-м категориям)">
+      <app-card title="Количество букв в title">
         <app-store-sessions-chart></app-store-sessions-chart>
       </app-card>
     </mat-grid-tile>
     <!--Table-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
       <app-card title="Список людей">
-        <app-charts-table></app-charts-table>
+        <!--<app-charts-table></app-charts-table>
+        <br>-->
+        <app-posts-table></app-posts-table>
       </app-card>
     </mat-grid-tile>
   </mat-grid-list>
